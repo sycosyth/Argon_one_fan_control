@@ -5,6 +5,12 @@
 prev_val=100
 trap 'i2cset -y 1 0x01a 0x64' EXIT
 
+if [ -f /opt/argon_one_fan_control/argon_fan_control.conf ]; then
+    conf_file='/opt/argon_one_fan_control/argon_fan_control.conf'
+else
+    conf_file='./argon_fan_control.conf'
+fi
+
 get_temp() {
     temp_raw=$(cat /sys/class/thermal/thermal_zone0/temp)
     cpu_temp=$((${temp_raw}/1000))
@@ -21,7 +27,7 @@ set_fan_speed() {
 }
 
 fan_control() {
-    get_temp_array=$(cat argon_fan_control.conf | grep -v '#' | sort --human-numeric-sort --reverse)
+    get_temp_array=$(cat ${config_file} | grep -v '#' | sort --human-numeric-sort --reverse)
 
     for entry in ${get_temp_array} ; {
         temp=$(echo $entry | awk -F '=' '{ print $1 }')

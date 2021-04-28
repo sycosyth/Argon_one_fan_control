@@ -1,0 +1,12 @@
+[Unit]
+Description=Argon One Fan Controll Script
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+RemainAfterExit=true
+ExecStart=/usr/bin/bash /opt/argon_one_fan_control/argon_fan_control.sh
+
+[Install]
+WantedBy=multi-user.target

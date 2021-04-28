@@ -10,7 +10,7 @@ service_file='argon_fan_control.service'
 usage() {
     cat <<EOF
 This script will install the systemd service to ${service_dir}, and all the other files to /opt/argon_one_fan_control
-Usage: $0 --install / --uninstall
+Usage: $0 --install / --uninstall / --update
 EOF
     exit 1
 }
@@ -62,6 +62,11 @@ case $1 in
     ;;
     --uninstall)
         uninstall
+    ;;
+    --update)
+        uninstall
+        git pull
+        install
     ;;
     --help|-h)
         usage

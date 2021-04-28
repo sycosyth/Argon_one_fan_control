@@ -36,7 +36,7 @@ install() {
 
     echo "Running 'systemctl daemon-reload' and starting argon_fan_control.service"
     systemctl daemon-reload
-    systemctl start argon_fan_control.service
+    systemctl enable --now argon_fan_control.service
 
     echo "Done!"
 }

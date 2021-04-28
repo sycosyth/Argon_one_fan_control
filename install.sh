@@ -66,7 +66,7 @@ case $1 in
     --update)
         uninstall
         git pull
-        install
+        $0 --install
     ;;
     --help|-h)
         usage

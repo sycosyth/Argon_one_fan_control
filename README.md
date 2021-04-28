@@ -1,4 +1,4 @@
-# Arogon_one_fan_control
+# Argon_one_fan_control
 This is a quick bash script I've written that successfully controls the fan speed on the Argon 1 case without the need for python GPIO. This has been tested and works on Fedora 34, and should work with any system that has i2c capabilities. Please note, this script does NOT do anything with the power button
 
 The script commands are based off codes found here -> https://github.com/Argon40Tech/Argon-ONE-i2c-Codes
@@ -14,13 +14,19 @@ I have tested this works on a Raspberry Pi 4B running Fedora 34 with the Argon O
 It /should/ work anywhere that the i2c commands can control the GPIO pins of the Pi. 
  
 ## Installation:
-You will need to make sure you have the following entries in your ```config.txt```
+* You will need to make sure you have the following entries in your ```config.txt```
 
 ```
 dtparam=i2c1=on
 dtparam=i2c_arm=on
 ```
-Clone the script/config file and run it. (I will create a systemd file for this soon (hopefully)).
+* Clone this repo ```git clone https://github.com/sycosyth/Argon_one_fan_control.git``` 
+* cd into the newly created directory
+
+```./install.sh --install```
+
+### To Uninstall
+```./install.sh --uninstall```
 
 Cheers,
  

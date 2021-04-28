@@ -27,7 +27,7 @@ set_fan_speed() {
 }
 
 fan_control() {
-    get_temp_array=$(cat ${config_file} | grep -v '#' | sort --human-numeric-sort --reverse)
+    get_temp_array=$(cat ${conf_file} | grep -v '#' | sort --human-numeric-sort --reverse)
 
     for entry in ${get_temp_array} ; {
         temp=$(echo $entry | awk -F '=' '{ print $1 }')
